@@ -39,7 +39,7 @@ do
 	--
 	-- constants
 	--
-	local DISSECTOR_VERSION             = "0.0.0"
+	local DISSECTOR_VERSION             = "0.1.1"
 
 	local DEFAULT_KEYENCE_PORT          = 24691
 	local DEFAULT_KEYENCE_HS_PORT       = 24692

@@ -1,4 +1,5 @@
 # Wireshark dissector for the Keyence LJ-V (7000) Ultra-High Speed In-Line Profilometer ethernet protocol
+v0.1.1
 
 
 ## Overview
