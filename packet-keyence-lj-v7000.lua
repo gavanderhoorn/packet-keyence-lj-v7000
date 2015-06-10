@@ -613,50 +613,50 @@ do
 		return table.concat(temp, ", ")
 	end
 
-local function add_named_tree_field(buf, tree, offset, len, text)
-	local data = buf(offset, len)
-	local st = tree:add(data, text)
-	if len == 8 then
-		data = data:le_uint64()
-	else
-		data = data:le_uint()
+	local function add_named_tree_field(buf, tree, offset, len, text)
+		local data = buf(offset, len)
+		local st = tree:add(data, text)
+		if len == 8 then
+			data = data:le_uint64()
+		else
+			data = data:le_uint()
+		end
+		st:append_text(_F(": %u", data))
+		return st
 	end
-	st:append_text(_F(": %u", data))
-	return st
-end
 
-local function add_named_tree_field_int(buf, tree, offset, len, text)
-	local data = buf(offset, len)
-	local st = tree:add(data, text)
-	if len == 8 then
-		data = data:le_int64()
-	else
-		data = data:le_int()
+	local function add_named_tree_field_int(buf, tree, offset, len, text)
+		local data = buf(offset, len)
+		local st = tree:add(data, text)
+		if len == 8 then
+			data = data:le_int64()
+		else
+			data = data:le_int()
+		end
+		st:append_text(_F(": %d", data))
+		return st
 	end
-	st:append_text(_F(": %d", data))
-	return st
-end
 
-local function add_named_tree_field_str(buf, tree, offset, len, text)
-	local data = buf(offset, len)
-	local st = tree:add(data, text)
-	st:append_text(": '" .. data:string() .. "'")
-	return st
-end
+	local function add_named_tree_field_str(buf, tree, offset, len, text)
+		local data = buf(offset, len)
+		local st = tree:add(data, text)
+		st:append_text(": '" .. data:string() .. "'")
+		return st
+	end
 
-local function add_named_tree_field_strz(buf, tree, offset, len, text)
-	local data = buf(offset, len)
-	local st = tree:add(data, text)
-	st:append_text(": '" .. data:stringz() .. "'")
-	return st
-end
+	local function add_named_tree_field_strz(buf, tree, offset, len, text)
+		local data = buf(offset, len)
+		local st = tree:add(data, text)
+		st:append_text(": '" .. data:stringz() .. "'")
+		return st
+	end
 
-local function add_named_tree_field_bytes(buf, tree, offset, len, text)
-	local data = buf(offset, len)
-	local st = tree:add(data, text)
-	st:append_text(": " .. data)
-	return st
-end
+	local function add_named_tree_field_bytes(buf, tree, offset, len, text)
+		local data = buf(offset, len)
+		local st = tree:add(data, text)
+		st:append_text(": " .. data)
+		return st
+	end
 
 
 
